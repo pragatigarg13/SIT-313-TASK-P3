@@ -1,29 +1,27 @@
-function TutorialCard({ tutorial }) {
+function TutorialCard(props) {
   return (
     <article className="border border-gray-300 p-4 rounded-lg shadow-sm hover:shadow-lg transition">
-
       <img
-        src={tutorial.image}
-        alt={tutorial.title}
+        src={props.tutorial.image}
+        alt={props.tutorial.title}
         className="w-full h-48 object-cover rounded"
       />
 
       <h3 className="text-xl font-bold p-2 text-cyan-700">
-        {tutorial.title}
+        {props.tutorial.title}
       </h3>
 
       <p className="p-2">
-        {tutorial.description}
+        {props.tutorial.description}
       </p>
 
       <p className="p-2">
-        Rating: {tutorial.rating}/5
+        Rating: {props.tutorial.rating}/5
       </p>
 
       <p className="p-2">
-        Username: {tutorial.username}
+        Username: {props.tutorial.username}
       </p>
-
     </article>
   );
 }
