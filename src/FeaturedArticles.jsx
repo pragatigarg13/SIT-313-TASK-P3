@@ -29,7 +29,7 @@ function FeaturedArticles() {
   ];
 
   return (
-    <section id="articles" className="p-6">
+    <section id="articles" className="p-6 bg-gray-50">
 
       <h2 className="text-4xl text-center p-3 text-cyan-700">
         <strong>Featured Articles</strong>
@@ -54,7 +54,7 @@ function FeaturedArticles() {
         See all articles
         </a>
       </div>
-
+      <hr className="w-35 mx-auto my-6 border-t-3 border-cyan-700" />
     </section>
   );
 }

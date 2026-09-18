@@ -1,14 +1,14 @@
 function TutorialCard({ tutorial }) {
   return (
-    <article className="border border-gray-300 p-4">
+    <article className="border border-gray-300 p-4 rounded-lg shadow-sm hover:shadow-lg transition">
 
       <img
         src={tutorial.image}
         alt={tutorial.title}
-        className="w-full h-48 object-cover"
+        className="w-full h-48 object-cover rounded"
       />
 
-      <h3 className="text-xl font-bold p-2">
+      <h3 className="text-xl font-bold p-2 text-cyan-700">
         {tutorial.title}
       </h3>
 

@@ -29,6 +29,7 @@ function Subscribe() {
         </button>
       </form>
     </section>
+    
   );
 }
 
