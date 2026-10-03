@@ -1,27 +1,26 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import "./App.css";
+
 import Navbar from "./Navbar";
-import About from "./About";
-import Projects from "./Projects";
-import Photos from "./Photos";
-import FeaturedArticles from "./FeaturedArticles";
-import FeaturedTutorials from "./FeaturedTutorials";
-import Subscribe from "./Subscribe";
-import Contact from "./Contact";
 import Footer from "./Footer";
+import Home from "./Home";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
-      <About />
-      <Projects />
-      <Photos />
-      <FeaturedArticles />
-      <FeaturedTutorials />
-      <Subscribe />
-      <Contact />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
+
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 

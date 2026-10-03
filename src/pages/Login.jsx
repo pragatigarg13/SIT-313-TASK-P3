@@ -1,0 +1,80 @@
+
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./Login.css";
+
+function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setMessage("");
+
+    try {
+      const response = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email,
+          password
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert(data.message);
+        navigate("/");
+      } else {
+        setMessage(data.message);
+      }
+
+    } catch (error) {
+      setMessage("Unable to connect to the server. Please try again.");
+    }
+  };
+
+  return (
+    <div className="login-container">
+      <div className="login-box">
+
+        <Link to="/signup" className="signup-link">
+          Sign up
+        </Link>
+
+        <form onSubmit={handleLogin}>
+          <label>Your email</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <label>Your password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          {message && (
+            <p className="error-message">{message}</p>
+          )}
+
+          <button type="submit">Login</button>
+        </form>
+
+      </div>
+    </div>
+  );
+}
+
+export default Login;
